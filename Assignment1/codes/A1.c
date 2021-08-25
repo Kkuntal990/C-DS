@@ -2,8 +2,8 @@
 
 int tob(int b, int *arr){
     int i;
-    for (int i = 0; b > 0; i++){
-        if(b%2)
+    for (i = 0; b > 0; i++){
+        if (b % 2)
             arr[i] = 1;
         else
             arr[i] = 0;
@@ -19,7 +19,7 @@ int pp(int a, int b){
     ex = a;
 
     len = tob(b, arr);
-    for (int i = 0; i < len; i++)
+    for (i = 0; i < len; i++)
     {
         if(arr[i] == 1)
             tot = tot * ex;
@@ -31,9 +31,10 @@ int pp(int a, int b){
 
 int main()
 {
-
-    printf("pp(3, 4) = %d\n", pp(3, 4));
-    pp(3, 4);
+    int a, b;
+    printf("Please input \" a \" and \" b \" in order \n");
+    scanf("%d %d", &a, &b);
+    printf("pp(%d, %d) = %d\n", a, b, pp(a, b));
 
     return 0;
 }

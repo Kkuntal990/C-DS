@@ -123,7 +123,7 @@ columns=fullflexible
      \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
 \vspace{3cm}
 \title{Assignment 1}
-\author{Piyush Kumar Uttam - EE18BTECH11036}
+\author{Kuntal Sudhir Kokate - EE18BTECH11028}
 \maketitle
 \newpage
 \bigskip
@@ -132,47 +132,56 @@ columns=fullflexible
 Download all latex-tikz codes from 
 %
 \begin{lstlisting}
-https://github.com/piyushSTK/C-DS/blob/main/Assignment1/assignment1.tex
+    https://github.com/Kkuntal990/C-DS/blob/main/Assignment1/assignment1.tex
 \end{lstlisting}
 \section{Problem}
-(Q 26) Consider the following C function.
+(Q 48) Consider the following C function.
 \begin{lstlisting}
-void convert(int n){
-    if(n<0) printf("%d", n);
-    else{
-        convert(n/2);
-        printf("%d", n%2);
+    int tob(int b, int *arr){
+        int i;
+        for (int i = 0; b > 0; i++){
+            if(b%2)
+                arr[i] = 1;
+            else
+                arr[i] = 0;
+            b = b / 2;
+        }
+    
+        return (i);
     }
+\end{lstlisting}
+
+\begin{lstlisting}
+    int pp(int a, int b){
+    int arr[20];
+    int i, tot = 1, ex, len;
+    ex = a;
+
+    len = tob(b, arr);
+    for (int i = 0; i < len; i++)
+    {
+        if(arr[i] == 1)
+            tot = tot * ex;
+        ex = ex * ex;
+    }
+
+    return tot;
 }
 \end{lstlisting}
-Which of the following will happen when the function \textbf{convert} is called with any positive integer n as argument?
-\begin{enumerate}
-    \item It will print the binary representation of \textbf{n} and terminate.
-    \item It will print the binary representation of \textbf{n} in the reverse order and terminate.
-    \item It will print the binary representation of \textbf{n} and will not terminate.
-    \item It will not print anything and will not terminate.
-\end{enumerate}
+
+The value returned by $$pp(3,4)$$ is ?
+
 \section{Solution}
-Answer : D) It will not print anything and will not terminate.
+\textbf{$$pp(3,4) = 81$$}
 \newline
 \textbf{Explanation}
 \newline
-This is a problem involving recursion, as $n>0$ the portion 
-\begin{lstlisting}
-    else{
-        convert(n/2);
-        printf("%d", n%2);
-    }
-\end{lstlisting}
-will be evaluated. In this portion, convert is called again with value of \textbf{n/2} and subsequently \textbf{n} goes from $n -> 0$.
-\newline
-\newline
-\newline
-\newline
-However as \textbf{n} = 0; the condition 
-\newline
-\begin{lstlisting}
-    if(n<0) printf("%d", n);
-\end{lstlisting}
-is still not satisfied and $0/2 = 0$. Hence it will not terminate and will not print anything as print statement is after \textbf{convert(n/2)} call.
+\textsl{tob} function stores positive decimal integer to its unsigned binary format given
+the input array pointer points to sufficiently large length array or it will throw an error.
+For eg. $$\textsl{tob(4)} = 100 $$
+
+
+
+We have $$a = 3$$ and $$b = 4$$
+
 \end{document}
