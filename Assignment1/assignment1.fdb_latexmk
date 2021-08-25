@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1629904641 "/home/kuntalkokate/Semester_7/DSC/Assignment1/assignment1.tex" "/home/kuntalkokate/Semester_7/DSC/Assignment1/assignment1.pdf" "assignment1" 1629904643
+["pdflatex"] 1629918244 "/home/kuntalkokate/Semester_7/DSC/Assignment1/assignment1.tex" "/home/kuntalkokate/Semester_7/DSC/Assignment1/assignment1.pdf" "assignment1" 1629918246
   "/etc/texmf/web2c/texmf.cnf" 1629831887 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/kuntalkokate/Semester_7/DSC/Assignment1/assignment1.aux" 1629904643 915 cb4d6b5557654aed9351a78371af90cc ""
-  "/home/kuntalkokate/Semester_7/DSC/Assignment1/assignment1.tex" 1629904641 5736 e06620b439d2e76fc7d3ddf8c088bc7d ""
+  "/home/kuntalkokate/Semester_7/DSC/Assignment1/assignment1.aux" 1629918246 915 cb4d6b5557654aed9351a78371af90cc ""
+  "/home/kuntalkokate/Semester_7/DSC/Assignment1/assignment1.tex" 1629918243 6255 9a9e1ea58faaab669f0d9e7a5cd7beb4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -323,13 +323,13 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1629831930 5160710 ecf427ae8fa19139d8691f526e47bb9b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1629831989 2568976 c79da7a3f9c59bdfc6d6279d4c65d828 ""
-  "assignment1.aux" 1629904643 915 cb4d6b5557654aed9351a78371af90cc "pdflatex"
-  "assignment1.out" 1629904643 85 1210bcf5feae7a75a114051724ef25e7 "pdflatex"
-  "assignment1.tex" 1629904641 5736 e06620b439d2e76fc7d3ddf8c088bc7d ""
+  "assignment1.aux" 1629918246 915 cb4d6b5557654aed9351a78371af90cc "pdflatex"
+  "assignment1.out" 1629918246 85 1210bcf5feae7a75a114051724ef25e7 "pdflatex"
+  "assignment1.tex" 1629918243 6255 9a9e1ea58faaab669f0d9e7a5cd7beb4 ""
   (generated)
-  "/home/kuntalkokate/Semester_7/DSC/Assignment1/assignment1.pdf"
   "assignment1.pdf"
-  "assignment1.log"
-  "assignment1.aux"
   "/home/kuntalkokate/Semester_7/DSC/Assignment1/assignment1.log"
+  "assignment1.aux"
   "assignment1.out"
+  "assignment1.log"
+  "/home/kuntalkokate/Semester_7/DSC/Assignment1/assignment1.pdf"

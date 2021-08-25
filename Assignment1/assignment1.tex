@@ -176,12 +176,30 @@ The value returned by $$pp(3,4)$$ is ?
 \newline
 \textbf{Explanation}
 \newline
-\textsl{tob} function stores positive decimal integer to its unsigned binary format given
-the input array pointer points to sufficiently large length array or it will throw an error.
+Characteristics of \textsl{tob} function:
+\begin{enumerate}
+    \item If $$b \geq 2^{(length(arr))}$$ \textsl{tob} returns an error due to buffer overflow.
+    \item Converts positive integers to their binary representation.
+    \item Incase of negative integer, it returns 1 as output.
+\end{enumerate}
+
 For eg. $$\textsl{tob(4)} = 100 $$
 
-
-
 We have $$a = 3$$ and $$b = 4$$
+In function \textsl{pp}, we have $$len(arr) = 20$$
+$$\implies b < 2^{20} $$
+Final answer is updated in function \textsl{pp} only when the corresponding bit is set in
+ binary representation of \textsl{b} as evident from the below for loop.
+
+ \begin{lstlisting}
+    for (int i = 0; i < len; i++)
+    {
+        if(arr[i] == 1)
+            tot = tot * ex;
+        ex = ex * ex;
+    }
+ \end{lstlisting}
+
+
 
 \end{document}
