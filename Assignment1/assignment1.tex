@@ -183,15 +183,16 @@ Characteristics of \textsl{tob} function:
     \item In the case of negative integer, it returns 1 as output.
 \end{enumerate}
 
-\[ tob((b)_{10}, *arr) = 
+\[ tob(x, \textbf{V}) = 
     \begin{cases} 
     1 & x < 0 \\
-    (b)_2 & 0 \geq b < 2^{length(arr)} \\
-    undefined & b \geq 2^{length(arr)}
+    (x)_2 & 0 \geq x < 2^{|\mathbb{V}|}
  \end{cases}
 \]
 
-For eg. $$\textsl{tob(4, *arr)} = 100 $$, where *arr points to arr[20].
+where $x \epsilon \mathbb{Z}$ and $\textbf{V} = {v_{1}, v_{2}, ..... , v_{|\mathbb{V}|}}$ where $v_{i} \epsilon \mathbb{Z}$.
+
+For eg. $\textsl{tob(4, arr)} = 100 $.
 
 We have $a = 3$ and $b = 4$ and we have $len(arr) = 20$
 $$\implies b < 2^{20} $$
