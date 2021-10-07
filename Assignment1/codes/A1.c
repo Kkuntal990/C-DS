@@ -19,6 +19,7 @@ int pp(int a, int b){
     ex = a;
 
     len = tob(b, arr);
+    //printf("%d", len);
     for (i = 0; i < len; i++)
     {
         if(arr[i] == 1)
