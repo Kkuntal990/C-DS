@@ -1,6 +1,9 @@
 #%%
 import numpy as np
 import matplotlib.pyplot as plt
+import ctypes
+import time
+from timeit import default_timer as timer
 
 #%%
 def y(x):
@@ -28,4 +31,35 @@ plt.title("Implementation constraints")
 plt.legend()
 plt.show()
 plt.savefig('../images/constraints', format='png')
+# %%
+
+powerFunction = ctypes.CDLL(
+    '/home/kuntal990/academic/C-DS/Assignment1/codes/libpow.so')
+powerFunction.pp.argtypes = [ctypes.c_int, ctypes.c_int]
+powerFunction.tob.argtypes = [ctypes.c_int]
+
+
+# %%
+print('ans = %d' % (powerFunction.pp(3, 4)))
+
+# %%
+O = []
+x = [i for i in range(64)]
+x = [2**i for i in x]
+#print(x)
+for i in x:
+    tmp = []
+    for _ in range(10000):
+        start = timer()
+        val = powerFunction.tob(i)
+        end = timer()
+        tmp.append(end-start)
+    O.append(np.mean(tmp))
+
+# %%
+plt.xscale('log', base=2)
+plt.scatter(x[3:], O[3:])
+plt.grid()
+plt.title('running of tob VS b')
+plt.show()
 # %%
