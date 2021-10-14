@@ -30,7 +30,7 @@ plt.grid()
 plt.title("Implementation constraints")
 plt.legend()
 plt.show()
-plt.savefig('../images/constraints', format='png')
+
 # %%
 
 powerFunction = ctypes.CDLL(

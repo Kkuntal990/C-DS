@@ -173,41 +173,94 @@ The value returned by $pp(3,4)$ is ?
 
 \section{Solution}
 \textbf{$$pp(3,4) = 81$$}
-\newline
-\textbf{Explanation}
-\newline
+
+\subsection{Explanation}
 Characteristics of \textsl{tob} function:
 \begin{enumerate}
-    \item If $b \geq 2^{(length(arr))}$, \textsl{tob} returns an error due to buffer overflow.
     \item Converts positive integers to their binary representation.
     \item In the case of negative integer, it returns 1 as output.
+    \item Returns the decimal number in binary representation as output
 \end{enumerate}
-
-\[ tob(x, \textbf{V}) = 
+\vspace{1 cm}
+ \[ tob(b) = 
     \begin{cases} 
-    1 & x < 0 \\
-    (x)_2 & 0 \geq x < 2^{|\mathbb{V}|}
+    1 & b < 0 \\
+    (b)_2 & b \geq 0
  \end{cases}
+    \]
+
+\begin{center}
+    where $b \epsilon \mathbb{Z}$ \\
+    \vspace{0.5cm}
+For eg. $\textsl{tob(4)} = 100 $.
+\end{center}
+
+Mathematical description of \textsl{pp} function:
+\[ pp(a, b) = 
+\begin{cases} 
+a^b & b \geq 0 \\
+1 & b < 0
+\end{cases}
 \]
 
-where $x \epsilon \mathbb{Z}$ and $\textbf{V} = \{v_{1}, v_{2}, ..... , v_{|\mathbb{V}|}\}$ where $v_{i} \epsilon \mathbb{Z}$.
+\begin{center}
+where $a, b \epsilon \mathbb{Z}$ 
+\end{center}
 
-For eg. $\textsl{tob(4, arr)} = 100 $.
+\textbf{$$ \implies pp(3,4) = 81$$}
 
-We have $a = 3$ and $b = 4$ and we have $len(arr) = 20$
-$$\implies b < 2^{20} $$
-Final answer is updated in function \textsl{pp} only when the corresponding bit is set in
-binary representation of \textsl{b} as evident from the below for loop.
+\subsection{Complexity Analysis}
+\begin{itemize}   
+    \item In \textit{tob}, for loop is halving the value of b every time, there are only $log_2{b}$ steps possible.
+     \item Complexity of \textit{tob}: $\mathcal{O}(log_{2}(b))$. 
+    \item In \textit{pp}, iterations are equal to number of bits in binary representation of b.
+    \item Complexity of \textit{pp}: $\mathcal{O}(log_{2}(b))$.
+\end{itemize}
 
- \begin{lstlisting}
-    for (int i = 0; i < len; i++)
-    {
-        if(arr[i] == 1)
-            tot = tot * ex;
-        ex = ex * ex;
-    }
- \end{lstlisting}
+\textbf{Simulation results:} 
+\begin{enumerate}
+    \item Used cmake library to import C functions into python.
+    \begin{figure}[]
+        \centering
+        \includegraphics[scale=0.5]{images/simulation.png}
+        \caption{X-axis represents input b and Y-axis represents time in seconds. The time for executing our function is very small compared to the overhead added time. So the simulation results are not clear enough.}
+        \label{simulation_1}
+    \end{figure}
+    \item Used C itself to store the time data into a \textit{'.dat '} file. 
+    \begin{figure}[]
+        \centering
+        \includegraphics[scale=0.5]{images/simulation_2.png}
+        \caption{Results seem more reasonable than previous attempt.}
+        \label{simulation_2}
+    \end{figure}
+\end{enumerate}
 
+\subsection{Implementation constraints}
+\begin{itemize}
+    \item Inputs are restricted by length of the array we are using to store binary representations, $y < 2^{length(array)}$, where $length(array)=20$.
+    \item We are using \textit{int} data type in C to represent our integers so, $x^y < 2^{32}$.
+\end{itemize}
+
+\begin{figure}[]
+    \centering
+    \includegraphics[scale=0.5]{images/constraints.png}
+    \caption{Implementation restricts our range to the small purple shaded region.}
+    \label{fig:constraints}
+\end{figure}
+
+\begin{itemize}
+    \item We can improve those constraints at the cost of time complexity.
+    \item Store large decimal number as a string.
+    \item Treat individual character as a single digit number and take the remainder to the next character.
+    \item This way we can perform division, multiplication and addition of the large number representated as string.
+    \item Using that we convert that decimal string to binary string.
+    \item Code for that can be found in \begin{lstlisting}
+        codes/A1_4
+    \end{lstlisting} of the repository.
+    \item Time complexity : $\mathcal{O}(n)$, where n is the length of the large number. It is worse than previous logarithmic complexity.
+    \item But we can convert integers containing more than 64 bits to their corresponding binary representation.
+    \item Better range of our function can be obtained.
+\end{itemize}
 
 
 \end{document}
