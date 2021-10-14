@@ -73,7 +73,7 @@ int main()
 
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    cout << "Please enter your number : \n"
+    printf("Please enter your number : \n");
     string s;
     cin >> s;
     vector<int> res(1, 0);
