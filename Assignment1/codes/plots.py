@@ -63,3 +63,22 @@ plt.grid()
 plt.title('running of tob VS b')
 plt.show()
 # %%
+f = open("/home/kuntal990/academic/C-DS/Assignment1/codes/complexity.dat", "rb")
+Lines = f.readlines()
+X = np.zeros((len(Lines),))
+y = np.zeros((len(Lines),))
+
+for i in range(len(Lines)):
+	Data = Lines[i].split()
+	X[i] = (int(Data[0]))
+	y[i] = (int(Data[1]))
+
+# %%
+plt.plot(X[3:], y[3:]/1e6)
+plt.xscale('log', base=2)
+plt.yscale('log')
+plt.xlabel('b')
+plt.ylabel('time in nanoseconds')
+plt.title("Complexity analysis")
+plt.show()
+# %%

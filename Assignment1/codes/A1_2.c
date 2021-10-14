@@ -54,7 +54,7 @@ int main()
         //printf("%d\n", dummy);
 
         clock_gettime(CLOCK_REALTIME, &ts2);
-        fprintf(fp, "%d 0.%09ld \n", i, ts2.tv_nsec - ts1.tv_nsec);
+        fprintf(fp, "%d %ld \n", i, ts2.tv_nsec - ts1.tv_nsec);
     }
     fclose(fp);
 
