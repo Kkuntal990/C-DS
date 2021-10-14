@@ -1,19 +1,24 @@
+#%%
 import numpy as np
 import matplotlib.pyplot as plt
+#%%
 
-P1 = [3,0]
-P2 = [-2, -2]
-P3 = [8, 2]
+A = [1, 2, 7]
+B = [2, 6, 3]
+C = [3, 10, -1]
+m = np.array([A, B, C])
 
-slope1 = (P2[1] - P1[1])/(P2[0] - P1[0])
-slope2 = (P3[1] - P1[1])/(P3[0] - P1[0])
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+line = ax.plot(m[:, 0], m[:, 1], m[:, 2])
+A = ax.scatter(A[0], A[1], A[2])
+B = ax.scatter(B[0], B[1], B[2])
+C = ax.scatter(C[0], C[1], C[2])
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.set_zlabel("z")
 
-print("slope1 == slope2 \n")
-print(slope1==slope2)
-
-plt.plot([P2[0], P1[0]], [P2[1], P1[1]])
-plt.plot([P1[0], P3[0]], [P1[1], P3[1]], lw = 3)
-plt.scatter([P1[0], P2[0], P3[0]], [P1[1], P2[1], P3[1]], color='g')
-
-
-plt.show()
+plt.legend((A, B, C, line),
+           ('A', 'B', 'C', 'line segment'))
+plt.savefig('../figs/proof.eps')
+# %%

@@ -122,7 +122,7 @@ columns=fullflexible
      \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
      \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
 \vspace{3cm}
-\title{Assignment 1}
+\title{Assignment 2}
 \author{Kuntal Sudhir Kokate - EE18BTECH11028}
 \maketitle
 \newpage
@@ -132,135 +132,76 @@ columns=fullflexible
 Download all latex-tikz codes from 
 %
 \begin{lstlisting}
-    https://github.com/Kkuntal990/C-DS/blob/main/Assignment1/assignment1.tex
+    https://github.com/Kkuntal990/C-DS/blob/main/Assignment2/assignment2.tex
+\end{lstlisting}
+
+Download all codes from 
+\begin{lstlisting}
+    
 \end{lstlisting}
 \section{Problem}
-(Q 48) Consider the following C function.
-\begin{lstlisting}
-    int tob(int b, int *arr){
-        int i;
-        for (int i = 0; b > 0; i++){
-            if(b%2)
-                arr[i] = 1;
-            else
-                arr[i] = 0;
-            b = b / 2;
-        }
-    
-        return (i);
-    }
-\end{lstlisting}
-
-\begin{lstlisting}
-    int pp(int a, int b){
-    int arr[20];
-    int i, tot = 1, ex, len;
-    ex = a;
-
-    len = tob(b, arr);
-    for (int i = 0; i < len; i++)
-    {
-        if(arr[i] == 1)
-            tot = tot * ex;
-        ex = ex * ex;
-    }
-
-    return tot;
-}
-\end{lstlisting}
-
-The value returned by $pp(3,4)$ is ?
-
+Show that the points $\textbf{A} = \begin{pmatrix} 1 \\ 2 \\ 7 \end{pmatrix}$, $\textbf{B} = \begin{pmatrix} 2 \\ 6 \\ 3 \end{pmatrix}$ and $\textbf{C} = \begin{pmatrix} 3 \\ 10 \\ -1 \end{pmatrix}$ are collinear.
 \section{Solution}
-\textbf{$$pp(3,4) = 81$$}
-
-\subsection{Explanation}
-Characteristics of \textsl{tob} function:
-\begin{enumerate}
-    \item Converts positive integers to their binary representation.
-    \item In the case of negative integer, it returns 1 as output.
-    \item Returns the decimal number in binary representation as output
-\end{enumerate}
-\vspace{1 cm}
- \[ tob(b) = 
-    \begin{cases} 
-    1 & b < 0 \\
-    (b)_2 & b \geq 0
- \end{cases}
-    \]
-
-\begin{center}
-    where $b \epsilon \mathbb{Z}$ \\
-    \vspace{0.5cm}
-For eg. $\textsl{tob(4)} = 100 $.
-\end{center}
-
-Mathematical description of \textsl{pp} function:
-\[ pp(a, b) = 
-\begin{cases} 
-a^b & b \geq 0 \\
-1 & b < 0
-\end{cases}
+We will solve for a general case of given \textbf{n} points of \textbf{m} dimensions.
+Check whether three points
+\[
+    A =
+    \begin{pmatrix}
+        x_{1}  \\
+        x_{2}  \\
+        \vdots \\
+        x_{n}
+    \end{pmatrix},
+    B =
+    \begin{pmatrix}
+        y_{1}  \\
+        y_{2}  \\
+        \vdots \\
+        y_{n}
+    \end{pmatrix},
+    C =
+    \begin{pmatrix}
+        z_{1}  \\
+        z_{2}  \\
+        \vdots \\
+        z_{n}
+    \end{pmatrix}
 \]
+are collinear or not.
 
-\begin{center}
-where $a, b \epsilon \mathbb{Z}$ 
-\end{center}
+\subsection{Necessary condition}
+Let's take three points \textbf{a}, \textbf{b} and \textbf{c}. We will say that these points are collinear if and only if the $max{|\overrightarrow{AB}|, |\overrightarrow{AC}|, |\overrightarrow{BC}|} = 
+\text{sum of other two distances}$. That is, let's say $\overrightarrow{AB}$ is the maximum of three, 
+$$\implies \overrightarrow{AB} = \overrightarrow{AC} + \overrightarrow{BC}$$
+\subsection{Proof:}
+Without loss of generality we can take the above example. Let's say that $\implies \overrightarrow{AB} < \overrightarrow{AC} + \overrightarrow{BC}$, then due to triangle inequality we can say that 
+the points \textbf{a}, \textbf{b} and \textbf{c} form a triangle.
 
-\textbf{$$ \implies pp(3,4) = 81$$}
+\subsection{Example}
+Taking our above problem.
+ $\textbf{A} = \begin{pmatrix} 1 \\ 2 \\ 7 \end{pmatrix}$, $\textbf{B} = \begin{pmatrix} 2 \\ 6 \\ 3 
+\end{pmatrix}$ and $\textbf{C} = \begin{pmatrix} 3 \\ 10 \\ -1 \end{pmatrix}$
 
-\subsection{Complexity Analysis}
-\begin{itemize}   
-    \item In \textit{tob}, for loop is halving the value of b every time, there are only $log_2{b}$ steps possible.
-     \item Complexity of \textit{tob}: $\mathcal{O}(log_{2}(b))$. 
-    \item In \textit{pp}, iterations are equal to number of bits in binary representation of b.
-    \item Complexity of \textit{pp}: $\mathcal{O}(log_{2}(b))$.
-\end{itemize}
+\begin{equation}
+    |\overrightarrow{AB}| = 5.744
+\end{equation}
 
-\textbf{Simulation results:} 
-\begin{enumerate}
-    \item Used cmake library to import C functions into python.
-    \begin{figure}[]
-        \centering
-        \includegraphics[scale=0.5]{images/simulation.png}
-        \caption{X-axis represents input b and Y-axis represents time in seconds. The time for executing our function is very small compared to the overhead added time. So the simulation results are not clear enough.}
-        \label{simulation_1}
-    \end{figure}
-    \item Used C itself to store the time data into a \textit{'.dat '} file. 
-    \begin{figure}[]
-        \centering
-        \includegraphics[scale=0.5]{images/simulation_2.png}
-        \caption{Results seem more reasonable than previous attempt.}
-        \label{simulation_2}
-    \end{figure}
-\end{enumerate}
+\begin{equation}
+    |\overrightarrow{AC}| = 11.489
+\end{equation}
 
-\subsection{Implementation constraints}
-\begin{itemize}
-    \item Inputs are restricted by length of the array we are using to store binary representations, $y < 2^{length(array)}$, where $length(array)=20$.
-    \item We are using \textit{int} data type in C to represent our integers so, $x^y < 2^{32}$.
-\end{itemize}
+\begin{equation}
+    |\overrightarrow{BC}| = 5.744
+\end{equation}
 
-\begin{figure}[]
+Therefore, the points are collinear.
+
+\subsection{Proof by plot}
+\begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.5]{images/constraints.png}
-    \caption{Implementation restricts our range to the small purple shaded region.}
-    \label{fig:constraints}
+    \includegraphics[scale=0.5]{figs/pointsCollinear.png}
+    \caption{Plotting the 3 points}
+    \label{fig:collinearPoints}
 \end{figure}
-
-\begin{itemize}
-    \item We can improve those constraints at the cost of time complexity.
-    \item Store large decimal number as a string.
-    \item Treat individual character as a single digit number and take the remainder to the next character.
-    \item This way we can perform division, multiplication and addition of the large number representated as string.
-    \item Using that we convert that decimal string to binary string.
-    \item Code for that can be found in \begin{lstlisting}
-        ./codes/A1_4.cpp
-    \end{lstlisting} of the repository.
-    \item Time complexity : $\mathcal{O}(n)$, where n is the length of the large number. It is worse than previous logarithmic complexity.
-    \item But we can convert integers containing more than 64 bits to their corresponding binary representation.
-    \item Better range of our function can be obtained.
-\end{itemize}
-
 
 \end{document}
